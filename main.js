@@ -188,7 +188,10 @@ var numCashSales = transactions.filter(numberOfCashSales).length
   HINT(S):
   - Make sure to exclude any 'sales' made by 'credit'!
 */
-var numCreditPurchases;
+function numOfPurchaseSales(transaction){
+  return transaction.type === 'purchase' && transaction.paymentMethod === 'credit';
+}
+var numCreditPurchases = transactions.filter(numOfPurchaseSales).length
 
 console.log( 'The total number of credit purchases is:', numCreditPurchases );
 
@@ -205,8 +208,17 @@ console.log( 'The total number of credit purchases is:', numCreditPurchases );
   - The assembled array should be made up of strings, not full `transaction` objects.
   - This array is allowed to contain duplicate values.
 */
-var uniqueVendors;
+var uniqueVendors = [];
 
+function vendors(transaction){
+  // console.log(transaction.vendor)
+  if (transaction.vendor)
+    uniqueVendors.push(transaction.vendor)
+
+}
+
+
+transactions.forEach(vendors)
 console.log( 'The unique vendors are:', uniqueVendors );
 
 
@@ -222,11 +234,44 @@ console.log( 'The unique vendors are:', uniqueVendors );
   - The assembled array should be made up of strings, not full `transaction` objects.
   - Make sure that the resulting array *does not* include any duplicates.
 */
-var uniqueCustomers;
+var allCustomers = [];
+
+function trans(transaction){
+  if (transaction.customer)
+    allCustomers.push(transaction.customer)
+}
+
+transactions.forEach(trans)
+
+console.log( 'All customers are:', allCustomers );
+
+allCustomers ==
+[ 'Isaac Asimov',
+  'CJ Cherryh',
+  'Frederik Pohl',
+  'Neal Stephenson',
+  'Isaac Asimov' ]
+
+var uniqueCustomers =
+  allCustomers.filter(function(customer, index, self) {
+    console.log(`${index} == ${self.indexOf(customer)}`)
+    return index == self.indexOf(customer);
+            1    ==  1
+  })
+
+customer = 'Isaac Asimov'
+index    = 0
+self     =
+[ 'Isaac Asimov',
+  'CJ Cherryh',
+  'Frederik Pohl',
+  'Neal Stephenson',
+  'Isaac Asimov' ]
+
+
+uniqueCustomers = ['isaac', 'cj'],
 
 console.log( 'The unique customers are:', uniqueCustomers );
-
-
 // --------------------------------------------------
 // QUESTION 07
 // --------------------------------------------------
