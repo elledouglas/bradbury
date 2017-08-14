@@ -120,37 +120,6 @@ var totalTransactions = transactions.length;
 console.log( 'The total number of transactions is:', totalTransactions );
 
 
-// --------------------------------------------------
-// QUESTION 01
-// --------------------------------------------------
-/*
-  Calculate the total number of 'sales'.
-
-  HINT(S):
-  - Not all transactions are 'sales'.
-*/
-var numSales;
-
-/*
-  Hey, welcome to the first question!
-
-  Here's a breakdown of the question, and some pointers on how to get started!
-    - A variable has been declared a few lines above (`numSales`).
-    - Just below, the contents of the `numSales` variable are logged to the console.
-    - Your job is to assign the variable to the correct value (in this case: the total number of sales) *BEFORE* it is logged out.
-    - You can do this by:
-      - Adding an `=` sign (we are *assigning* something after all)
-      - Starting with the `transactions` variable (see the example question);
-      - Adding one or more methods to transform/extract the value we're looking for.
-      - If your solution is correct, `numSales` should be equal to 5.
-
-  You can solve the remaining questions in the same way!
-
-  P.S.
-  The breakdown above takes up a lot of space, feel free to move it to the top or bottom of the file!
-*/
-
-console.log( 'The total number of sales is:', numSales );
 
 
 // --------------------------------------------------
@@ -158,10 +127,38 @@ console.log( 'The total number of sales is:', numSales );
 // --------------------------------------------------
 /*
   Calculate the total number of 'purchases'.
-*/
-var numPurchases;
+// */
+ var numPurchase = 0;
+ /*
+  transactions.each do |transaction|
+    puts transaction.type
+  end
+ */
+function checkPurchaseTransaction(transaction){
+  if (transaction.type === 'purchase'){
+    numPurchase++;
+  }
+}
 
-console.log( 'The total number of purchases is:', numPurchases );
+transactions.forEach(checkPurchaseTransaction)
+
+ // transactions.forEach(function(transaction){
+ //   console.log(transaction.type);
+ //
+ //   if (transaction.type === 'purchase') {
+ //     numPurchase++;
+ //   }
+//  }
+// )
+
+//   function a (transactions.forEach(transactions.type === 'purchases'));{
+//
+//     // function callbackfn(transactions.type, index, trans)
+//
+//
+// }
+
+console.log( 'The total number of purchases is:', numPurchase);
 
 
 // --------------------------------------------------
@@ -173,9 +170,13 @@ console.log( 'The total number of purchases is:', numPurchases );
   HINT(S):
   - Don't forget that 'purchases' can also be made in 'cash'!
 */
-var numCashSales;
 
-console.log( 'The total number of cash sales is:', numCashSales );
+function numberOfCashSales(transaction){
+return transaction.type === 'sale' && transaction.paymentMethod === 'cash';
+
+}
+var numCashSales = transactions.filter(numberOfCashSales).length
+  console.log( 'The total number of cash sales is:', numCashSales );
 
 
 // --------------------------------------------------
@@ -315,3 +316,41 @@ console.log( 'The most items sold in a single transaction is:', mostItems );
 var sumOfSmallestPurchase;
 
 console.log( 'The sum of the smallest purchase is:', sumOfSmallestPurchase );
+
+
+// // --------------------------------------------------
+// // QUESTION 01
+// // --------------------------------------------------
+// /*
+//   Calculate the total number of 'sales'.
+//
+//   HINT(S):
+//   - Not all transactions are 'sales'.
+// */
+// var numSales = transactions.type === 'sale';
+//  return numSales.length
+//
+//
+//
+//
+//
+// /*
+//   Hey, welcome to the first question!
+//
+//   Here's a breakdown of the question, and some pointers on how to get started!
+//     - A variable has been declared a few lines above (`numSales`).
+//     - Just below, the contents of the `numSales` variable are logged to the console.
+//     - Your job is to assign the variable to the correct value (in this case: the total number of sales) *BEFORE* it is logged out.
+//     - You can do this by:
+//       - Adding an `=` sign (we are *assigning* something after all)
+//       - Starting with the `transactions` variable (see the example question);
+//       - Adding one or more methods to transform/extract the value we're looking for.
+//       - If your solution is correct, `numSales` should be equal to 5.
+//
+//   You can solve the remaining questions in the same way!
+//
+//   P.S.
+//   The breakdown above takes up a lot of space, feel free to move it to the top or bottom of the file!
+// */
+//
+// console.log( 'The total number of sales is:', numSales );
