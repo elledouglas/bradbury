@@ -284,7 +284,21 @@ console.log( 'The unique customers are:', uniqueCustomers );
   - There may be more than 1 'sale' that includes 5 or more items.
   - Individual transactions do not have either `name` or `numItems` properties, we'll have to add them to the output.
 */
-var bigSpenders;
+var bigSpenders = [];
+// for each requires an argument hence transaction
+transactions.forEach(function(transaction){
+
+  if (transaction.type === "sale" && transaction.items.length >= 5){
+
+var spenderData = {};
+  spenderData['name'] = transaction.customer
+  spenderData['numItems'] = transaction.items.length
+    bigSpenders.push(spenderData);
+
+  }
+
+}
+)
 
 console.log( 'The "big spenders" are:', bigSpenders );
 
@@ -307,23 +321,23 @@ console.log( 'The "big spenders" are:', bigSpenders );
 //     ]
 //   }
 
-var firstSale = transactions[0]
-
-
-console.log(firstSale)
-var salesItems = firstSale.items.map(function(item){
-  return item ['price'];
-});
-
-console.log(salesItems);
+// var firstSale = transactions[0]
 //
-var sumSales = salesItems.reduce(function(sum, value) {
-  console.log(sum, value);
-  return sum + value;
-  console.log(sumSales)
-}, 0);
 //
-console.log( 'The sum of all sales is:', sumSales );
+// console.log(firstSale)
+// var salesItems = firstSale.items.map(function(item){
+//   return item ['price'];
+// });
+//
+// console.log(salesItems);
+// //
+// var sumSales = salesItems.reduce(function(sum, value) {
+//   console.log(sum, value);
+//   return sum + value;
+//   console.log(sumSales)
+// }, 0);
+// //
+// console.log( 'The sum of all sales is:', sumSales );
 
 // --------------------------------------------------
 // QUESTION 09
@@ -335,27 +349,26 @@ console.log( 'The sum of all sales is:', sumSales );
   - Your solution to 'QUESTION 08' is a good starting point!
   - Make sure to include 'price' information from *all* purchases.
 */
-
+//
 var sumPurchases;
-var newArray = transactions.filter(function(transaction){
-  if (transaction.type === 'purchase');
-});
-
-console.log(newArray)
-var salesItems = newArray.forEach(function(item){
-
-return item ['price'];
-});
-
-console.log(salesItems);
-
-var sumPurchases = salesItems.reduce(function(sum, value) {
-  console.log(sum, value);
-  return sum + value;
-  console.log(sumPurchases)
-}, 0);
+// var newArray = transactions.filter(function(transaction){
+//   if (transaction.type === 'purchase');
+// });
+//
+// console.log(newArray)
+// var salesItems = newArray.forEach(function(item){
+// return item ['price'];
+// });
+//
+// console.log(salesItems);
+//
+// var sumPurchases = salesItems.reduce(function(sum, value) {
+//   console.log(sum, value);
+//   return sum + value;
+//   console.log(sumPurchases)
+// }, 0);
 console.log( 'The sum of all purhcases is:', sumPurchases );
-
+//
 
 // --------------------------------------------------
 // QUESTION 10
