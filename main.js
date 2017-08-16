@@ -320,7 +320,25 @@ console.log( 'The "big spenders" are:', bigSpenders );
 //       { name: 'Bit', price: 0.125 }
 //     ]
 //   }
+var totals = []
+var sumSales;
+  transactions.forEach(function(transaction){
+    if (transaction.type === "sale"){
+      var total = 0;
 
+    for (var i = 0; i < transaction.items.length; i++)
+    total += transaction.items[i].price;
+    }
+
+    if (totals.length <= 0) {
+      totals.push(total);
+    }
+
+
+})
+sumSales = totals[0];
+
+// # if it hits return - it will stop
 // var firstSale = transactions[0]
 //
 //
@@ -337,7 +355,7 @@ console.log( 'The "big spenders" are:', bigSpenders );
 //   console.log(sumSales)
 // }, 0);
 // //
-// console.log( 'The sum of all sales is:', sumSales );
+console.log( 'The sum of all sales is:', sumSales );
 
 // --------------------------------------------------
 // QUESTION 09
